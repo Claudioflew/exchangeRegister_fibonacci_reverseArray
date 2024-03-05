@@ -14,21 +14,21 @@ INCLUDE Irvine32.inc
 ExitProcess PROTO, dwExitCode: dword
 
 .data
-fibonacci word 7 DUP(0)				; Create an array with 7 zeros
+fibonacci word 7 DUP(0)			; Create an array with 7 zeros
 
 .code
 main PROC
-	mov fibonacci, 1				; Fill 1 in the first element
-	mov fibonacci + 2, 1			; Fill 1 in the second element
+	mov fibonacci, 1		; Fill 1 in the first element
+	mov fibonacci + 2, 1		; Fill 1 in the second element
 
-	mov ecx, 5						; We want to loop 5 times
+	mov ecx, 5			; We want to loop 5 times
 	mov esi, offset fibonacci + 4	; Make an iterator starting from the third element	
 
 L1:
-	mov ax, [esi - 4]				; Move the previous element to ax
-	add ax, [esi - 2]				; Add the previous previous element to ax
-	mov [esi], ax					; [esi] deferences the third element
-	add esi, 2						; Don't forget increment the iterator by 2 bytes
+	mov ax, [esi - 4]		; Move the previous element to ax
+	add ax, [esi - 2]		; Add the previous previous element to ax
+	mov [esi], ax			; [esi] deferences the third element
+	add esi, 2			; Don't forget increment the iterator by 2 bytes
 	loop L1
 
 	CALL DumpRegs
