@@ -15,7 +15,7 @@ ExitProcess PROTO, dwExitCode: dword
 
 .data
 bigEndian byte 12h, 34h, 56h, 78h
-littleEndian dword ?
+littleEndian dword ?				; In memory 12h, 34h, 56, 78h = 56781234
 
 .code
 main PROC
